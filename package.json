@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "npm run test":"npm run test"
+    "test:unit": "vitest"
   },
   "devDependencies": {
     "typescript": "^4.5.4",
