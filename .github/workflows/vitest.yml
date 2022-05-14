@@ -24,6 +24,6 @@ jobs:
      
       - name: Execute Unit tests
       - run: npm ci
-	    - run: npm run test
+	      - run: npm run test:unit
    
      
