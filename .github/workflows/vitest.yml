@@ -21,9 +21,5 @@ jobs:
       run: npm i vitest
     - name: Run Unit test
       run: npm run test
-    - uses: actions/upload-artifact@v2
-      if: always()
-      name: vitest-report
-        path: vitest-report/
-        retention-days: 30
+   
      
