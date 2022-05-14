@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "npm run test":"npm run test"
   },
   "devDependencies": {
     "typescript": "^4.5.4",
