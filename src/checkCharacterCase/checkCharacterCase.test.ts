@@ -1,55 +1,97 @@
 import { assert, describe, expect, test, it } from 'vitest'
-import { sameCase }  from  "./checkCharacterCase";
-import {ionRangeSlider} from 'ion-rangeslider'
+import { sameCase }  from  "./checkCharacterCaseFunction";
+import { lowerCaseLetters, upperCaseLetters, notLetters, resultOfTest }  from  "./checkCharacterCaseData";
 
-test('Characters is not a letter -> it will be -1', () => {
-  expect(sameCase('R','!')).toBe(-1);
-  expect(sameCase('R','!')).toBe(-1);
-  expect(sameCase('R','!')).toBe(-1);
-  expect(sameCase('R','!')).toBe(-1);
-  expect(sameCase('R','!')).toBe(-1);
-  expect(sameCase('A', '?')).toBe(-1);
-  expect(sameCase('\0', 'B')).toBe(-1);
-  expect(sameCase('\t', 'Z')).toBe(-1);
-  expect(sameCase('H', ':')).toBe(-1);
-  expect(sameCase('!', '@')).toBe(-1);
-  expect(sameCase('@', 'H')).toBe(-1);
+describe('Простые тесты',()=>{
+    test('Один из символов не буква -> результат -1', () => {
+      expect(sameCase('R','!')).toBe(resultOfTest.minusOne);
+      expect(sameCase('R','!')).toBe(resultOfTest.minusOne);
+      expect(sameCase('R','!')).toBe(resultOfTest.minusOne);
+      expect(sameCase('R','!')).toBe(resultOfTest.minusOne);
+      expect(sameCase('R','!')).toBe(resultOfTest.minusOne);
+      expect(sameCase('A', '?')).toBe(resultOfTest.minusOne);
+      expect(sameCase('\0', 'B')).toBe(resultOfTest.minusOne);
+      expect(sameCase('\t', 'Z')).toBe(resultOfTest.minusOne);
+      expect(sameCase('H', ':')).toBe(resultOfTest.minusOne);
+      expect(sameCase('!', '@')).toBe(resultOfTest.minusOne);
+      expect(sameCase('@', 'H')).toBe(resultOfTest.minusOne);
+    });
 
+    test('Буквы одного регистра -> результат 1', () => {
+      expect(sameCase('R','D')).toBe(resultOfTest.one);
+      expect(sameCase('m', 'u')).toBe(resultOfTest.one);
+      expect(sameCase('i', 'y')).toBe(resultOfTest.one);
+      expect(sameCase('b', 's')).toBe(resultOfTest.one);
+      expect(sameCase('c', 'z')).toBe(resultOfTest.one);
+      expect(sameCase('b', 'a')).toBe(resultOfTest.one);
+      expect(sameCase('d', 'd')).toBe(resultOfTest.one);
+      expect(sameCase('F', 'P')).toBe(resultOfTest.one);
+      expect(sameCase('C', 'V')).toBe(resultOfTest.one);
+      expect(sameCase('M', 'T')).toBe(resultOfTest.one);
+      expect(sameCase('E', 'Z')).toBe(resultOfTest.one);
+      expect(sameCase('N', 'Y')).toBe(resultOfTest.one);
+      expect(sameCase('S', 'H')).toBe(resultOfTest.one);
+      expect(sameCase('V', 'W')).toBe(resultOfTest.one);
+    });
+
+    test('Буквы разного регистра -> результат 0', () => {
+      expect(sameCase('A','d')).toBe(resultOfTest.zero);
+      expect(sameCase('U', 'b')).toBe(resultOfTest.zero);
+      expect(sameCase('Z', 'q')).toBe(resultOfTest.zero);
+      expect(sameCase('O', 'g')).toBe(resultOfTest.zero);
+      expect(sameCase('g', 'B')).toBe(resultOfTest.zero);
+      expect(sameCase('R', 'z')).toBe(resultOfTest.zero);
+      expect(sameCase('I', 'o')).toBe(resultOfTest.zero);
+      expect(sameCase('I', 'e')).toBe(resultOfTest.zero);
+    });
 });
+describe('Детальный тесты', ()=>{
 
-test('Characters are the same case -> it will be 1 ', () => {
-  expect(sameCase('R','D')).toBe(1);
-  expect(sameCase('m', 'u')).toBe(1);
-  expect(sameCase('i', 'y')).toBe(1);
-  expect(sameCase('b', 's')).toBe(1);
-  expect(sameCase('c', 'z')).toBe(1);
-  expect(sameCase('b', 'a')).toBe(1);
-  expect(sameCase('d', 'd')).toBe(1);
-  expect(sameCase('F', 'P')).toBe(1);
-  expect(sameCase('C', 'V')).toBe(1);
-  expect(sameCase('M', 'T')).toBe(1);
-  expect(sameCase('E', 'Z')).toBe(1);
-  expect(sameCase('N', 'Y')).toBe(1);
-  expect(sameCase('S', 'H')).toBe(1);
-  expect(sameCase('V', 'W')).toBe(1);
+    test("Буквы разного регистра, первый аргумет-нижний регистр, второй аргумент-верхний регистр -> результат 0", () => {
+      for( let i:number = 0; i < lowerCaseLetters.length; i++){
+          expect(sameCase(lowerCaseLetters[i],upperCaseLetters[i])).toBe(resultOfTest.zero);
+        }; 
+    });
+
+    test("Буквы разного регистра, первый аргумет-верхний регистр, второй аргумент- нижний регистр -> результат 0", () => {
+      for( let i:number = 0; i < lowerCaseLetters.length; i++){
+          expect(sameCase(upperCaseLetters[i],lowerCaseLetters[i])).toBe(resultOfTest.zero);
+        }; 
+    });
+
+    test("Буквы одного регистра,первый и второй аргумет-нижний регистр -> результат 1", () => {
+      for( let i:number = 0; i < lowerCaseLetters.length; i++){
+        expect(sameCase(lowerCaseLetters[i],lowerCaseLetters[i])).toBe(resultOfTest.one);
+      }; 
+    });
+
+    test("Буквы одного регистра,первый и второй аргумет-верхний регистр -> результат 1", () => {
+      for( let i:number = 0; i < upperCaseLetters.length; i++){
+        expect(sameCase(upperCaseLetters[i],upperCaseLetters[i])).toBe(resultOfTest.one);
+      }; 
+    });
+
+    test("Один из символов не буква, первый аргумент буква-нижний регистр, второй аргумент-не буква -> результат -1", () => {
+      for( let i:number = 0; i < lowerCaseLetters.length; i++){
+          expect(sameCase(lowerCaseLetters[i],notLetters[i])).toBe(resultOfTest.minusOne);
+        }; 
+    });
+
+    test("Один из символов не буква, первый аргумент буква-верхний регистр, второй аргумент-не буква -> результат -1", () => {
+      for( let i:number = 0; i < upperCaseLetters.length; i++){
+          expect(sameCase(upperCaseLetters[i],notLetters[i])).toBe(resultOfTest.minusOne);
+        }; 
+    });
+
+    test("Один из символов не буква, первый аргумент-не буква, второй аргумент буква-нижний регистр -> результат -1", () => {
+      for( let i:number = 0; i < lowerCaseLetters.length; i++){
+          expect(sameCase(notLetters[i],lowerCaseLetters[i])).toBe(resultOfTest.minusOne);
+        }; 
+    });
+
+    test("Один из символов не буква, первый аргумент-не буква, второй аргумент буква-верхний регистр -> результат -1", () => {
+      for( let i:number = 0; i < upperCaseLetters.length; i++){
+          expect(sameCase(notLetters[i],upperCaseLetters[i])).toBe(resultOfTest.minusOne);
+        }; 
+    });
 });
-
-test('Characters are letters, but not the same case -> it will be 0', () => {
-  expect(sameCase('A','d')).toBe(0);
-  expect(sameCase('U', 'b')).toBe(0);
-  expect(sameCase('Z', 'q')).toBe(0);
-  expect(sameCase('O', 'g')).toBe(0);
-  expect(sameCase('g', 'B')).toBe(0);
-  expect(sameCase('R', 'z')).toBe(0);
-  expect(sameCase('I', 'o')).toBe(0);
-  expect(sameCase('I', 'e')).toBe(0);
-});
-const  lowerCase:any = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-const  upperCase:any = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-const NON_LETTERS = "0123456789~#&'|()[]{}@$^?!.:;,+*-=^_";
-
-test("Characters are letters, but not the same case -> it will be 0", () => {
-    for( let i:number = 0; i < 100; i++){
-      expect(sameCase(lowerCase[i],upperCase[i])).toBe(0)
-    }; 
-  });
