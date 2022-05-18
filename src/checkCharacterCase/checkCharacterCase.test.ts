@@ -1,5 +1,6 @@
-import { assert, expect, test } from 'vitest'
+import { assert, describe, expect, test, it } from 'vitest'
 import { sameCase }  from  "./checkCharacterCase";
+import {ionRangeSlider} from 'ion-rangeslider'
 
 test('Characters is not a letter -> it will be -1', () => {
   expect(sameCase('R','!')).toBe(-1);
@@ -43,4 +44,12 @@ test('Characters are letters, but not the same case -> it will be 0', () => {
   expect(sameCase('I', 'o')).toBe(0);
   expect(sameCase('I', 'e')).toBe(0);
 });
+const  lowerCase:any = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+const  upperCase:any = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+const NON_LETTERS = "0123456789~#&'|()[]{}@$^?!.:;,+*-=^_";
 
+test("Characters are letters, but not the same case -> it will be 0", () => {
+    for( let i:number = 0; i < 100; i++){
+      expect(sameCase(lowerCase[i],upperCase[i])).toBe(0)
+    }; 
+  });
