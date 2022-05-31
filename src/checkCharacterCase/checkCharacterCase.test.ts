@@ -146,7 +146,7 @@ describe('Рандомные данные для тестов', ()=>{
         expect(sameCase(randomDataNotLetters,randomDataLowerCaseLetters)).toBeTypeOf('number');
   });
 
-  test("Один из символов не буква, первый аргумент-не буква, второй аргумент буква-верхний регистр -> результат -1", () => {k
+  test("Один из символов не буква, первый аргумент-не буква, второй аргумент буква-верхний регистр -> результат -1", () => {
         expect(sameCase(randomDataNotLetters,randomDataUpperCaseLetters)).toBe(resultOfTest.minusOne);
         expect(sameCase(randomDataNotLetters,randomDataUpperCaseLetters)).toBeTypeOf('number');
   });
