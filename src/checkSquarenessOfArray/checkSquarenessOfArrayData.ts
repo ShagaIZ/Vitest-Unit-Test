@@ -1,2 +1,21 @@
-export const firstArrayInput = [ 100, 101, 5, 5, 1, 1 ];
-export const firstArrayOutput = [ 10, 10201, 25, 25, 1, 1 ];
+
+export const arrays = {
+    firstInput: [100, 101, 5, 5, 1, 1],
+    firstOutput: [10, 10201, 25, 25, 1, 1],
+    secondInput: [6, 7, 3, 0, 81, 121,144],
+    secondOutput: [36, 49, 9, 0, 9, 11,12],
+    thirdInput: [-2, -2, -2, -2, -2],
+    thirdOutput: [4, 4, 4, 4, 4],
+    fourthInput: [],
+    fourthOutput: [],
+    fivethInput: [25],
+    fivethOutput: [5],
+    sixthInput: ['g'],
+    sixthOutput: [NaN],
+    seventhInput: [null],
+    seventhOutput: [0],
+    eightthInput: [undefined],
+    eightthOutput: [NaN],
+    ninethInput: [{name:'Ilyas', age:25}],
+    ninethOutput: [NaN],
+}
