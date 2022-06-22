@@ -29,9 +29,9 @@ test('Пустой массив ->  возвращен пустой массив
 });
 
 test('В массив одно положительное число возведённое в квадрат ->  возвращен квадратный корень числа', ()=>{
-    expect(squareOrSquareRoot(arrays.fivethInput)).to.be.a('array');
-    expect(squareOrSquareRoot(arrays.fivethInput)).to.have.lengthOf(1);
-    expect(squareOrSquareRoot(arrays.fivethInput)).toMatchObject(arrays.fivethOutput);
+    expect(squareOrSquareRoot(arrays.fifthInput)).to.be.a('array');
+    expect(squareOrSquareRoot(arrays.fifthInput)).to.have.lengthOf(1);
+    expect(squareOrSquareRoot(arrays.fifthInput)).toMatchObject(arrays.fifthOutput);
 });
 
 test('В массив строка ->  возвращен Nan', ()=>{
@@ -47,14 +47,14 @@ test('В массив null ->  возвращен 0', ()=>{
 });
 
 test('В массив undefined -> возвращен Nan', ()=>{
-    expect(squareOrSquareRoot(arrays.eightthInput)).to.be.a('array');
-    expect(squareOrSquareRoot(arrays.eightthInput)).to.have.lengthOf(1);
-    expect(squareOrSquareRoot(arrays.eightthInput)).toMatchObject(arrays.eightthOutput);
+    expect(squareOrSquareRoot(arrays.eighthInput)).to.be.a('array');
+    expect(squareOrSquareRoot(arrays.eighthInput)).to.have.lengthOf(1);
+    expect(squareOrSquareRoot(arrays.eighthInput)).toMatchObject(arrays.eighthOutput);
 });
 
 test('В массив объект -> возвращен Nan', ()=>{
-    expect(squareOrSquareRoot(arrays.ninethInput)).to.be.a('array');
-    expect(squareOrSquareRoot(arrays.ninethInput)).to.have.lengthOf(1);
-    expect(squareOrSquareRoot(arrays.ninethInput)).toMatchObject(arrays.ninethOutput);
+    expect(squareOrSquareRoot(arrays.ninthInput)).to.be.a('array');
+    expect(squareOrSquareRoot(arrays.ninthInput)).to.have.lengthOf(1);
+    expect(squareOrSquareRoot(arrays.ninthInput)).toMatchObject(arrays.ninthOutput);
 });
 })
