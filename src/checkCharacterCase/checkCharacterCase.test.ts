@@ -51,63 +51,66 @@ describe('Простые тесты',()=>{
 describe('Детальный тесты с циклами', ()=>{
 
     test("Буквы разного регистра, первый аргумет-нижний регистр, второй аргумент-верхний регистр -> результат 0", () => {
-      for( let i:number = 0; i < lowerCaseLetters.length; i++){
-          expect(sameCase(lowerCaseLetters[i],upperCaseLetters[i])).toBe(resultOfTest.zero);
-          expect(sameCase(lowerCaseLetters[i],upperCaseLetters[i])).toBeTypeOf('number');
-        }; 
+      lowerCaseLetters.forEach((lowerCase,index)=>{
+          const upperCase = upperCaseLetters[index]
+          expect(sameCase(lowerCase,upperCase)).toBe(resultOfTest.zero);
+          expect(sameCase(lowerCase,upperCase)).toBeTypeOf('number');
+        });
     });
 
     test("Буквы разного регистра, первый аргумет-верхний регистр, второй аргумент- нижний регистр -> результат 0", () => {
-      for( let i:number = 0; i < lowerCaseLetters.length; i++){
-          expect(sameCase(upperCaseLetters[i],lowerCaseLetters[i])).toBe(resultOfTest.zero);
-          expect(sameCase(upperCaseLetters[i],lowerCaseLetters[i])).toBeTypeOf('number');
-        }; 
+      lowerCaseLetters.forEach((lowerCase,index)=>{
+          const upperCase = upperCaseLetters[index]
+          expect(sameCase(upperCase,lowerCase)).toBe(resultOfTest.zero);
+          expect(sameCase(upperCase,lowerCase)).toBeTypeOf('number');
+        });
     });
 
     test("Буквы одного регистра,первый и второй аргумет-нижний регистр -> результат 1", () => {
-      for( let i:number = 0; i < lowerCaseLetters.length; i++){
-        expect(sameCase(lowerCaseLetters[i],lowerCaseLetters[i])).toBe(resultOfTest.one);
-        expect(sameCase(lowerCaseLetters[i],lowerCaseLetters[i])).toBeTypeOf('number');
-      }; 
+      lowerCaseLetters.forEach((lowerCase)=>{
+          expect(sameCase(lowerCase,lowerCase)).toBe(resultOfTest.one);
+          expect(sameCase(lowerCase,lowerCase)).toBeTypeOf('number');
+        });
     });
 
-    test("Буквы одного регистра,первый и второй аргумет-верхний регистр -> результат 1", () => {
-      for( let i:number = 0; i < upperCaseLetters.length; i++){
-        expect(sameCase(upperCaseLetters[i],upperCaseLetters[i])).toBe(resultOfTest.one);
-        expect(sameCase(upperCaseLetters[i],upperCaseLetters[i])).toBeTypeOf('number');
-      }; 
+    test("Буквы одного регистра,первый и второй аргумет-верхний регистр -> результат 1", () => { 
+      upperCaseLetters.forEach((upperCase)=>{
+          expect(sameCase(upperCase,upperCase)).toBe(resultOfTest.one);
+          expect(sameCase(upperCase,upperCase)).toBeTypeOf('number');
+        });
     });
 
     test("Один из символов не буква, первый аргумент буква-нижний регистр, второй аргумент-не буква -> результат -1", () => {
-      for( let i:number = 0; i < lowerCaseLetters.length; i++){
-          expect(sameCase(lowerCaseLetters[i],notLetters[i])).toBe(resultOfTest.minusOne);
-          expect(sameCase(lowerCaseLetters[i],notLetters[i])).toBeTypeOf('number');
-        }; 
+      lowerCaseLetters.forEach((lowerCase,index)=>{
+          const notLetter = notLetters[index]
+          expect(sameCase(lowerCase,notLetter)).toBe(resultOfTest.minusOne);
+          expect(sameCase(lowerCase,notLetter)).toBeTypeOf('number');
+        });
     });
 
     test("Один из символов не буква, первый аргумент буква-верхний регистр, второй аргумент-не буква -> результат -1", () => {
-      for( let i:number = 0; i < upperCaseLetters.length; i++){
-          expect(sameCase(upperCaseLetters[i],notLetters[i])).toBe(resultOfTest.minusOne);
-          expect(sameCase(upperCaseLetters[i],notLetters[i])).toBeTypeOf('number');
-        }; 
+      upperCaseLetters.forEach((upperCase,index)=>{
+          const notLetter = notLetters[index]
+          expect(sameCase(upperCase,notLetter)).toBe(resultOfTest.minusOne);
+          expect(sameCase(upperCase,notLetter)).toBeTypeOf('number');
+        });
     });
 
     test("Один из символов не буква, первый аргумент-не буква, второй аргумент буква-нижний регистр -> результат -1", () => {
-      for( let i:number = 0; i < lowerCaseLetters.length; i++){
-          expect(sameCase(notLetters[i],lowerCaseLetters[i])).toBe(resultOfTest.minusOne);
-          expect(sameCase(notLetters[i],lowerCaseLetters[i])).toBeTypeOf('number');
-        }; 
+      lowerCaseLetters.forEach((lowerCase,index)=>{
+          const notLetter = notLetters[index]
+          expect(sameCase(notLetter,lowerCase)).toBe(resultOfTest.minusOne);
+          expect(sameCase(notLetter,lowerCase)).toBeTypeOf('number');
+        });
     });
 
     test("Один из символов не буква, первый аргумент-не буква, второй аргумент буква-верхний регистр -> результат -1", () => {
-      for( let i:number = 0; i < upperCaseLetters.length; i++){
-          expect(sameCase(notLetters[i],upperCaseLetters[i])).toBe(resultOfTest.minusOne);
-          expect(sameCase(notLetters[i],upperCaseLetters[i])).toBeTypeOf('number');
-        }; 
-    });
-
-    
-    
+      upperCaseLetters.forEach((upperCase,index)=>{
+          const notLetter = notLetters[index]
+          expect(sameCase(notLetter,upperCase)).toBe(resultOfTest.minusOne);
+          expect(sameCase(notLetter,upperCase)).toBeTypeOf('number');
+        });
+    });   
 });
 describe('Рандомные данные для тестов', ()=>{
 
