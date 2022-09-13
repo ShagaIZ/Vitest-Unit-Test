@@ -5,6 +5,9 @@ import { lowerCaseLetters, upperCaseLetters, notLetters, resultOfTest,  }  from 
 const randomDataLowerCaseLetters:string = lowerCaseLetters[Math.floor(Math.random()*lowerCaseLetters.length)];
 const randomDataUpperCaseLetters:string = upperCaseLetters[Math.floor(Math.random()*upperCaseLetters.length)];
 const randomDataNotLetters:string = notLetters[Math.floor(Math.random()*notLetters.length)];
+
+
+
 describe('Простые тесты',()=>{
     test('Один из символов не буква -> результат -1', () => {
       expect(sameCase('R','!')).toBe(resultOfTest.minusOne);
