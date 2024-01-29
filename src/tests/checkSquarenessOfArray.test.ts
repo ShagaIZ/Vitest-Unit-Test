@@ -1,6 +1,6 @@
 import { assert, describe, expect, test, it } from 'vitest';
-import { squareOrSquareRoot }  from  "./checkSquarenessOfArrayFunc";
-import { arrays }  from  "./checkSquarenessOfArrayData";
+import { squareOrSquareRoot }  from  "../functions/checkSquarenessOfArrayFunc";
+import { arrays }  from  "../data/checkSquarenessOfArrayData";
 
 describe('Базовые тесты', ()=>{
 
