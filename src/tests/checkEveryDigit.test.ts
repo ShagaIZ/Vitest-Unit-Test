@@ -1,5 +1,5 @@
 import { assert, describe, expect, test, it } from 'vitest';
-import { squareDigits}  from  "../functions/func";
+import { squareDigits}  from  "../functions/squareDigitsFunction";
 import { InputNumbers, OutputNumbers}  from  "../data/squreEveryDigitData";
 
 describe('Базовые тесты', ()=>{

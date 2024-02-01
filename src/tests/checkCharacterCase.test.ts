@@ -1,5 +1,5 @@
 import { assert, describe, expect, test, it } from 'vitest'
-import { sameCase }  from  "../functions/checkCharacterCaseFunc";
+import { sameCase }  from  "../functions/checkCharacterCaseFunction";
 import { lowerCaseLetters, upperCaseLetters, notLetters, resultOfTest,  }  from  "../data/checkCharacterCaseData";
 
 const randomDataLowerCaseLetters:string = lowerCaseLetters[Math.floor(Math.random()*lowerCaseLetters.length)];

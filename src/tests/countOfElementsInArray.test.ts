@@ -1,5 +1,5 @@
 import { assert, describe, expect, test, it } from 'vitest'
-import { countPositivesSumNegatives }  from  "../functions/countOfElementsInArrayFunc";
+import { countPositivesSumNegatives }  from  "../functions/countOfElementsInArrayFunction";
 import { arrays  } from "../data/countOfElementsInArrayData";
 
 describe('Базовые тесты', ()=>{
